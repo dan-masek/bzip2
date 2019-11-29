@@ -1,0 +1,46 @@
+//
+#include <Winver.h>
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+#define VERSION_FILEVERSION @VERSION_NUM@
+#define VERSION_FILEVERSION_STR "@VERSION_STR@\0"
+
+#define VERSION_PRODUCTVERSION @VERSION_NUM@
+#define VERSION_PRODUCTVERSION_STR "@VERSION_STR@\0"
+
+#ifndef DEBUG
+#define VERSION_DEBUG                   0
+#else
+#define VERSION_DEBUG                   VS_FF_DEBUG
+#endif
+
+VS_VERSION_INFO VERSIONINFO
+FILEVERSION    	VERSION_FILEVERSION
+PRODUCTVERSION 	VERSION_PRODUCTVERSION
+FILEFLAGSMASK  	VS_FFI_FILEFLAGSMASK
+FILEFLAGS      	(VERSION_DEBUG)
+FILEOS         	VOS__WINDOWS32
+FILETYPE       	VFT_DLL
+FILESUBTYPE    	VFT2_UNKNOWN
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904E4"
+        BEGIN
+            VALUE "FileDescription",  "@VERSION_FILEDESCRIPTION_STR@\0"
+            VALUE "FileVersion",      VERSION_FILEVERSION_STR
+            VALUE "InternalName",     "@VERSION_INTERNALNAME_STR@\0"
+            VALUE "LegalCopyright",   "@VERSION_COPYRIGHT_STR@\0"
+            VALUE "OriginalFilename", "@VERSION_ORIGINALFILENAME_STR@\0"
+            VALUE "ProductName",      "@VERSION_PRODUCT_NAME_STR@\0"
+            VALUE "ProductVersion",   VERSION_PRODUCTVERSION_STR
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
